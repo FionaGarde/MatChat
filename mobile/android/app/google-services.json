@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "877978358786",
-    "project_id": "digitalschool-8e580",
-    "storage_bucket": "digitalschool-8e580.appspot.com"
+    "project_number": "9293164990",
+    "project_id": "matchat-8e995",
+    "storage_bucket": "matchat-8e995.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:877978358786:android:d09c0407c27257d34a431b",
+        "mobilesdk_app_id": "1:9293164990:android:1bd8d8c00848c1c25849ef",
         "android_client_info": {
           "package_name": "com.dissingardjino.digitaldschool"
         }
       },
       "oauth_client": [
         {
-          "client_id": "877978358786-vtflnqmjiij75v0lkdmfrnt07rgh5265.apps.googleusercontent.com",
+          "client_id": "9293164990-7l86f36r1dp0bvt3mcsp716oc2o5nqqo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAG_I2rkS1Tgh7BON3X_B_6NcM20ZjBmKg"
+          "current_key": "AIzaSyCU5xxgPkcqm4gI4SUcqSh0iOtp9Oh3pOw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "877978358786-vtflnqmjiij75v0lkdmfrnt07rgh5265.apps.googleusercontent.com",
+              "client_id": "9293164990-7l86f36r1dp0bvt3mcsp716oc2o5nqqo.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "9293164990-s5fmaef647kd9080qog482q16eeac6t5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dissingardjino.digitaldschool"
+              }
             }
           ]
         }

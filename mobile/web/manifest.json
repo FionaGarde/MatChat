@@ -1,6 +1,6 @@
 {
-    "name": "digitaldschool",
-    "short_name": "digitaldschool",
+    "name": "MatChat",
+    "short_name": "MatChat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

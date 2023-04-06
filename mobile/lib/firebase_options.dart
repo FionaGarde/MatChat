@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCEDfZTqy6nBj-ilkeiTHglwYXFbBh5kUQ',
-    appId: '1:877978358786:web:1d49f9ac8a8339d14a431b',
-    messagingSenderId: '877978358786',
-    projectId: 'digitalschool-8e580',
-    authDomain: 'digitalschool-8e580.firebaseapp.com',
-    storageBucket: 'digitalschool-8e580.appspot.com',
-    measurementId: 'G-9FCCB8XRE7',
+    apiKey: 'AIzaSyDgxs6coNZP1xGEfzxu_1ts7KM30kUQDZU',
+    appId: '1:9293164990:web:206f45435a1361b65849ef',
+    messagingSenderId: '9293164990',
+    projectId: 'matchat-8e995',
+    authDomain: 'matchat-8e995.firebaseapp.com',
+    storageBucket: 'matchat-8e995.appspot.com',
+    measurementId: 'G-HFJ502C79B',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAG_I2rkS1Tgh7BON3X_B_6NcM20ZjBmKg',
-    appId: '1:877978358786:android:d09c0407c27257d34a431b',
-    messagingSenderId: '877978358786',
-    projectId: 'digitalschool-8e580',
-    storageBucket: 'digitalschool-8e580.appspot.com',
+    apiKey: 'AIzaSyCU5xxgPkcqm4gI4SUcqSh0iOtp9Oh3pOw',
+    appId: '1:9293164990:android:1bd8d8c00848c1c25849ef',
+    messagingSenderId: '9293164990',
+    projectId: 'matchat-8e995',
+    storageBucket: 'matchat-8e995.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD_yJGAcBfWzz8EfKPVf0L9vK985QHTkOI',
-    appId: '1:877978358786:ios:55c16aedaef18b814a431b',
-    messagingSenderId: '877978358786',
-    projectId: 'digitalschool-8e580',
-    storageBucket: 'digitalschool-8e580.appspot.com',
-    iosClientId: '877978358786-kgnticqgosfsu3j8p18ack9qnmslrr41.apps.googleusercontent.com',
+    apiKey: 'AIzaSyB5uH3ZNDzy3vThK5vEcFrNFa1-W9KDMyU',
+    appId: '1:9293164990:ios:c084cf7bf72f8d255849ef',
+    messagingSenderId: '9293164990',
+    projectId: 'matchat-8e995',
+    storageBucket: 'matchat-8e995.appspot.com',
+    iosClientId: '9293164990-s5fmaef647kd9080qog482q16eeac6t5.apps.googleusercontent.com',
     iosBundleId: 'com.dissingardjino.digitaldschool',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD_yJGAcBfWzz8EfKPVf0L9vK985QHTkOI',
-    appId: '1:877978358786:ios:55c16aedaef18b814a431b',
-    messagingSenderId: '877978358786',
-    projectId: 'digitalschool-8e580',
-    storageBucket: 'digitalschool-8e580.appspot.com',
-    iosClientId: '877978358786-kgnticqgosfsu3j8p18ack9qnmslrr41.apps.googleusercontent.com',
+    apiKey: 'AIzaSyB5uH3ZNDzy3vThK5vEcFrNFa1-W9KDMyU',
+    appId: '1:9293164990:ios:c084cf7bf72f8d255849ef',
+    messagingSenderId: '9293164990',
+    projectId: 'matchat-8e995',
+    storageBucket: 'matchat-8e995.appspot.com',
+    iosClientId: '9293164990-s5fmaef647kd9080qog482q16eeac6t5.apps.googleusercontent.com',
     iosBundleId: 'com.dissingardjino.digitaldschool',
   );
 }
