@@ -71,6 +71,9 @@ class FirestoreHelper {
   }
 
 //ajouter un message
+  addMessage(String id, Map<String, dynamic> map) {
+    cloudMessage.doc(id).set(map);
+  }
 
 //supprimer un message
 
