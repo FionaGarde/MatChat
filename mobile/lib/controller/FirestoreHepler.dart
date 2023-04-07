@@ -13,9 +13,9 @@ class FirestoreHelper {
   //attributs
   final auth = FirebaseAuth.instance;
   final storage = FirebaseStorage.instance;
-  final cloudUsers = FirebaseFirestore.instance.collection("UTILISATEURS");
-  final cloudMessage = FirebaseFirestore.instance.collection("MESSAGES");
-  final cloudContact = FirebaseFirestore.instance.collection("CONTACTS");
+  final cloudUsers = FirebaseFirestore.instance.collection("users");
+  final cloudMessage = FirebaseFirestore.instance.collection("messages");
+  final cloudContact = FirebaseFirestore.instance.collection("contacts");
   //méthode
 
   //créer un utilisateur dans la base
