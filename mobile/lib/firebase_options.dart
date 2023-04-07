@@ -77,7 +77,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '9293164990',
     projectId: 'matchat-8e995',
     storageBucket: 'matchat-8e995.appspot.com',
-    iosClientId: '9293164990-s5fmaef647kd9080qog482q16eeac6t5.apps.googlecontent.com',
+    iosClientId: '9293164990-s5fmaef647kd9080qog482q16eeac6t5.apps.googleusercontent.com',
     iosBundleId: 'com.dissingardjino.digitaldschool',
   );
 }
