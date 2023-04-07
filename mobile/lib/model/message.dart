@@ -11,7 +11,6 @@ class Message {
   DateTime? date_add;
   DateTime? date_upd;
 
- 
   //un ou des constructeurs
   Message(DocumentSnapshot snapshot) {
     id = snapshot.id;
@@ -26,11 +25,11 @@ class Message {
     } else {
       date_add = timeprovisoire.toDate();
     }
-    Timestamp? timeprovisoire = map["DATE_UPD"];
-    if (timeprovisoire == null) {
+    Timestamp? timeprovisoireupd = map["DATE_UPD"];
+    if (timeprovisoireupd == null) {
       date_upd = DateTime.now();
     } else {
-      date_upd = timeprovisoire.toDate();
+      date_upd = timeprovisoireupd.toDate();
     }
   }
 
