@@ -41,7 +41,7 @@ class _ListPersonnState extends State<ListPersonn> {
                           backgroundImage: NetworkImage(otherUser.avatar!),
                         ),
                         title: Text(otherUser.fullName),
-                        subtitle: Text(otherUser.email),
+                        subtitle: Text(otherUser.mail),
                       ),
                     );
                   }

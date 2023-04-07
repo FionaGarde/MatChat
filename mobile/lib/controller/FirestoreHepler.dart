@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:matchat/model/utilisateur.dart';
+import 'package:matchat/model/contact.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -13,25 +14,26 @@ class FirestoreHelper {
   final storage = FirebaseStorage.instance;
   final cloudUsers = FirebaseFirestore.instance.collection("UTILISATEURS");
   final cloudMessage = FirebaseFirestore.instance.collection("MESSAGES");
-
+  final cloudContact = FirebaseFirestore.instance.collection("CONTACTS");
   //méthode
 
   //créer un utilisateur dans la base
-  Future<Utilisateur> Inscription(
-      String email, String password, String nom, String prenom) async {
+  Future<Utilisateur> Inscription(String mail, String password, String name,
+      String lastname, String pseudo, String langue) async {
     //creer dans l'authentification
     UserCredential credential = await auth.createUserWithEmailAndPassword(
-        email: email, password: password);
+        email: mail, password: password);
     User? user = credential.user;
     if (user == null) {
       return Future.error("error");
     } else {
       String uid = user.uid;
       Map<String, dynamic> map = {
-        "NOM": nom,
-        "PRENOM": prenom,
-        "EMAIL": email,
-        "FAVORIS": []
+        "NAME": name,
+        "LASTNAME": lastname,
+        "MAIL": mail,
+        "PSEUDO": pseudo,
+        "LANGUE": langue
       };
       //stocker dans la partie du firestore database
       addUser(uid, map);
@@ -45,10 +47,10 @@ class FirestoreHelper {
     return Utilisateur(snapshots);
   }
 
-//se connecter à un compte
-  Future<Utilisateur> Connect(String email, String password) async {
+  //se connecter à un compte
+  Future<Utilisateur> Connect(String mail, String password) async {
     UserCredential credential =
-        await auth.signInWithEmailAndPassword(email: email, password: password);
+        await auth.signInWithEmailAndPassword(email: mail, password: password);
     User? user = credential.user;
     if (user == null) {
       return Future.error("erreur");
@@ -63,11 +65,24 @@ class FirestoreHelper {
     cloudUsers.doc(id).set(map);
   }
 
-//supprimer un utlisateur
+  //supprimer un utlisateur
+  deleteUser(String id, Map<String, dynamic> map) {
+    cloudUsers.doc(id).delete();
+  }
 
-//mise à jour des infos utlisateurs
+  //mise à jour des infos utlisateurs
   updateUser(String id, Map<String, dynamic> data) {
     cloudUsers.doc(id).update(data);
+  }
+
+  //ajouter un contact
+  addContact(String id, Map<String, dynamic> map) {
+    cloudContact.doc(id).set(map);
+  }
+
+  //delete un contact
+  deleteContact(String id, Map<String, dynamic> map) {
+    cloudContact.doc(id).delete();
   }
 
 //ajouter un message
