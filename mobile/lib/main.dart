@@ -137,29 +137,10 @@ class _MyHomePageState extends State<MyHomePage> {
             isSelected: selection,
             children: const [Text("Connexion"), Text("Inscription")]),
         //image
-<<<<<<< HEAD
-        //const SizedBox(height: 10),
-        //Image.network(
-        //    "https://www.auto-moto.com/wp-content/uploads/sites/9/2022/02/01-peugeot-208-750x410.jpg"),
-        //const SizedBox(height: 10),
-
-        //pseudo
-        (selection[0] == false)
-            ? TextField(
-                controller: pseudo,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    hintText: "Entrer un pseudo"),
-              )
-            : Container(),
-        const SizedBox(height: 10),
-=======
         // const SizedBox(height: 10),
         // Image.network(
         //     "https://www.auto-moto.com/wp-content/uploads/sites/9/2022/02/01-peugeot-208-750x410.jpg"),
         // const SizedBox(height: 10),
->>>>>>> develop
 
         //prenom
         (selection[0] == false)
