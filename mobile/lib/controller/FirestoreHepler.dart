@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:matchat/model/utilisateur.dart';
+import 'package:matchat/model/message.dart';
 import 'package:matchat/model/contact.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -86,6 +87,9 @@ class FirestoreHelper {
   }
 
 //ajouter un message
+  addMessage(String id, Map<String, dynamic> map) {
+    cloudMessage.doc(id).set(map);
+  }
 
 //supprimer un message
 
