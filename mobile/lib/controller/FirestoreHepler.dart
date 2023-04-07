@@ -91,8 +91,6 @@ class FirestoreHelper {
     cloudMessage.doc(id).set(map);
   }
 
-//supprimer un message
-
 // upload une image
   Future<String> stockageImage(
       {required String dossier,
