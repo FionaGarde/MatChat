@@ -30,11 +30,11 @@ class FirestoreHelper {
     } else {
       String uid = user.uid;
       Map<String, dynamic> map = {
-        "NAME": name,
-        "LASTNAME": lastname,
-        "MAIL": mail,
-        "PSEUDO": pseudo,
-        "LANGUE": langue
+        "name": name,
+        "lastname": lastname,
+        "mail": mail,
+        "pseudo": pseudo,
+        "langue": langue
       };
       //stocker dans la partie du firestore database
       addUser(uid, map);
