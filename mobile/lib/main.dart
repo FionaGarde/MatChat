@@ -50,6 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController password = TextEditingController();
   TextEditingController prenom = TextEditingController();
   TextEditingController nom = TextEditingController();
+  TextEditingController pseudo = TextEditingController();
+  TextEditingController langue = TextEditingController();
   List<bool> selection = [true, false];
 
   //Méthode
@@ -135,13 +137,24 @@ class _MyHomePageState extends State<MyHomePage> {
             isSelected: selection,
             children: const [Text("Connexion"), Text("Inscription")]),
         //image
-        const SizedBox(height: 10),
-        Image.network(
-            "https://www.auto-moto.com/wp-content/uploads/sites/9/2022/02/01-peugeot-208-750x410.jpg"),
+        //const SizedBox(height: 10),
+        //Image.network(
+        //    "https://www.auto-moto.com/wp-content/uploads/sites/9/2022/02/01-peugeot-208-750x410.jpg"),
+        //const SizedBox(height: 10),
+
+        //pseudo
+        (selection[0] == false)
+            ? TextField(
+                controller: pseudo,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: "Entrer un pseudo"),
+              )
+            : Container(),
         const SizedBox(height: 10),
 
         //prenom
-
         (selection[0] == false)
             ? TextField(
                 controller: prenom,
@@ -154,7 +167,6 @@ class _MyHomePageState extends State<MyHomePage> {
         const SizedBox(height: 10),
 
         //nom
-
         (selection[0] == false)
             ? TextField(
                 controller: nom,
@@ -162,6 +174,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                     hintText: "Entrer votre nom"),
+              )
+            : Container(),
+        const SizedBox(height: 10),
+
+        //langue
+        (selection[0] == false)
+            ? TextField(
+                controller: langue,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: "Votre langue principale"),
               )
             : Container(),
         const SizedBox(height: 10),
@@ -194,8 +218,8 @@ class _MyHomePageState extends State<MyHomePage> {
               if (selection[0] == false) {
                 //si on en mode inscription
                 FirestoreHelper()
-                    .Inscription(
-                        mail.text, password.text, nom.text, prenom.text)
+                    .Inscription(mail.text, password.text, prenom.text,
+                        nom.text, pseudo.text, langue.text)
                     .then((value) {
                   //si la méthode fonctionne bien
                   setState(() {
