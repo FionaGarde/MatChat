@@ -13,14 +13,14 @@ class FirestoreHelper {
   //attributs
   final auth = FirebaseAuth.instance;
   final storage = FirebaseStorage.instance;
-  final cloudUsers = FirebaseFirestore.instance.collection("UTILISATEURS");
-  final cloudMessage = FirebaseFirestore.instance.collection("MESSAGES");
-  final cloudContact = FirebaseFirestore.instance.collection("CONTACTS");
+  final cloudUsers = FirebaseFirestore.instance.collection("users");
+  final cloudMessage = FirebaseFirestore.instance.collection("messages");
+  final cloudContact = FirebaseFirestore.instance.collection("contacts");
   //méthode
 
   //créer un utilisateur dans la base
   Future<Utilisateur> Inscription(String mail, String password, String name,
-      String lastname, String pseudo, String langue) async {
+      String lastname, String pseudo, String langue, String phone) async {
     //creer dans l'authentification
     UserCredential credential = await auth.createUserWithEmailAndPassword(
         email: mail, password: password);
@@ -30,11 +30,12 @@ class FirestoreHelper {
     } else {
       String uid = user.uid;
       Map<String, dynamic> map = {
-        "NAME": name,
-        "LASTNAME": lastname,
-        "MAIL": mail,
-        "PSEUDO": pseudo,
-        "LANGUE": langue
+        "firstname": name,
+        "lastname": lastname,
+        "mail": mail,
+        "pseudo": pseudo,
+        "langue": langue,
+        "phone": phone
       };
       //stocker dans la partie du firestore database
       addUser(uid, map);
@@ -90,8 +91,6 @@ class FirestoreHelper {
   addMessage(String id, Map<String, dynamic> map) {
     cloudMessage.doc(id).set(map);
   }
-
-//supprimer un message
 
 // upload une image
   Future<String> stockageImage(

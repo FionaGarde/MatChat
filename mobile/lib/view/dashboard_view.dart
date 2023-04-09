@@ -30,7 +30,8 @@ class _DashBoardViewState extends State<DashBoardView> {
           color: Colors.white,
           child: MyDrawer()),
       appBar: AppBar(
-        title: Text(monUtilisateur.fullName),
+        title: Text(monUtilisateur.pseudo),
+        backgroundColor: Colors.blueGrey,
       ),
       body: bodyPage(),
       bottomNavigationBar: BottomNavigationBar(
@@ -152,12 +153,11 @@ class MyDrawerState extends State<MyDrawer> {
           ),
         ),
 
-        Text(monUtilisateur.pseudo ?? ""),
-
         //prenom et nom
         Text(monUtilisateur.fullName),
 
         //pseudo
+        Text(monUtilisateur.pseudo),
         //poura enregitrer un nouveau pseudo
 
         //mail

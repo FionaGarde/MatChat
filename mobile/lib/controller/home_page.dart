@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     animatation =
-        AnimationController(vsync: this, duration: const Duration(seconds: 10))
+        AnimationController(vsync: this, duration: const Duration(seconds: 2))
           ..forward()
           ..addListener(() {
             setState(() {});
