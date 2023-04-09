@@ -20,7 +20,7 @@ class FirestoreHelper {
 
   //créer un utilisateur dans la base
   Future<Utilisateur> Inscription(String mail, String password, String name,
-      String lastname, String pseudo, String langue) async {
+      String lastname, String pseudo, String langue, String phone) async {
     //creer dans l'authentification
     UserCredential credential = await auth.createUserWithEmailAndPassword(
         email: mail, password: password);
@@ -30,11 +30,12 @@ class FirestoreHelper {
     } else {
       String uid = user.uid;
       Map<String, dynamic> map = {
-        "name": name,
+        "firstname": name,
         "lastname": lastname,
         "mail": mail,
         "pseudo": pseudo,
-        "langue": langue
+        "langue": langue,
+        "phone": phone
       };
       //stocker dans la partie du firestore database
       addUser(uid, map);

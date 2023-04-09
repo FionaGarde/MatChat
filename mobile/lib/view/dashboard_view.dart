@@ -153,12 +153,11 @@ class MyDrawerState extends State<MyDrawer> {
           ),
         ),
 
-        Text(monUtilisateur.pseudo ?? ""),
-
         //prenom et nom
         Text(monUtilisateur.fullName),
 
         //pseudo
+        Text(monUtilisateur.pseudo),
         //poura enregitrer un nouveau pseudo
 
         //mail
