@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:matchat/controller/FirestoreHepler.dart';
-import 'package:matchat/controller/liste_personne.dart';
+import 'package:matchat/controller/search_personne.dart';
 import 'package:matchat/globale.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +62,7 @@ class _DashBoardViewState extends State<DashBoardView> {
         });
       },
       children: const [
-        ListPersonn(),
+        SearchPersonn(),
         Text("Deuxième page"),
         Text("Troisème page"),
       ],
