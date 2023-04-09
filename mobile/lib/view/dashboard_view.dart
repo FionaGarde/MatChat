@@ -30,7 +30,8 @@ class _DashBoardViewState extends State<DashBoardView> {
           color: Colors.white,
           child: MyDrawer()),
       appBar: AppBar(
-        title: Text(monUtilisateur.fullName),
+        title: Text(monUtilisateur.pseudo),
+        backgroundColor: Colors.blueGrey,
       ),
       body: bodyPage(),
       bottomNavigationBar: BottomNavigationBar(
@@ -42,11 +43,11 @@ class _DashBoardViewState extends State<DashBoardView> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Personnes"),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Contacts"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit_outlined), label: "Favoris"),
+              icon: Icon(Icons.textsms_outlined), label: "Discussions"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.back_hand), label: "Nouveau"),
+              icon: Icon(Icons.manage_accounts), label: "Parametres"),
         ],
       ),
     );
@@ -152,12 +153,11 @@ class MyDrawerState extends State<MyDrawer> {
           ),
         ),
 
-        Text(monUtilisateur.pseudo ?? ""),
-
         //prenom et nom
         Text(monUtilisateur.fullName),
 
         //pseudo
+        Text(monUtilisateur.pseudo),
         //poura enregitrer un nouveau pseudo
 
         //mail

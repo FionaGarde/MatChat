@@ -1,8 +1,8 @@
-//C'est de faire les opérations sur la base de donnée
-
+//Faire les opérations sur la base de donnée
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:matchat/globale.dart';
 import 'package:matchat/model/utilisateur.dart';
 import 'package:matchat/model/message.dart';
 import 'package:matchat/model/contact.dart';
@@ -13,14 +13,14 @@ class FirestoreHelper {
   //attributs
   final auth = FirebaseAuth.instance;
   final storage = FirebaseStorage.instance;
-  final cloudUsers = FirebaseFirestore.instance.collection("UTILISATEURS");
-  final cloudMessage = FirebaseFirestore.instance.collection("MESSAGES");
-  final cloudContact = FirebaseFirestore.instance.collection("CONTACTS");
+  final cloudUsers = FirebaseFirestore.instance.collection("users");
+  final cloudMessage = FirebaseFirestore.instance.collection("messages");
+  final cloudContact = FirebaseFirestore.instance.collection("contacts");
   //méthode
 
   //créer un utilisateur dans la base
   Future<Utilisateur> Inscription(String mail, String password, String name,
-      String lastname, String pseudo, String langue) async {
+      String lastname, String pseudo, String langue, String phone) async {
     //creer dans l'authentification
     UserCredential credential = await auth.createUserWithEmailAndPassword(
         email: mail, password: password);
@@ -30,11 +30,12 @@ class FirestoreHelper {
     } else {
       String uid = user.uid;
       Map<String, dynamic> map = {
-        "NAME": name,
-        "LASTNAME": lastname,
-        "MAIL": mail,
-        "PSEUDO": pseudo,
-        "LANGUE": langue
+        "firstname": name,
+        "lastname": lastname,
+        "mail": mail,
+        "pseudo": pseudo,
+        "langue": langue,
+        "phone": phone
       };
       //stocker dans la partie du firestore database
       addUser(uid, map);
@@ -81,6 +82,21 @@ class FirestoreHelper {
     cloudContact.doc(id).set(map);
   }
 
+  //récuperer une liste de contacts
+  Future<List<DocumentSnapshot>> getContacts(String str) async {
+    var querySnapshot = await FirebaseFirestore.instance
+        .collection('contact')
+        .where('pseudo1', isEqualTo: str)
+        .get();
+    var querySnapshot2 = await FirebaseFirestore.instance
+        .collection('contact')
+        .where('pseudo2', isEqualTo: str)
+        .get();
+
+    querySnapshot.docs.addAll(querySnapshot2.docs);
+    return querySnapshot.docs;
+  }
+
   //delete un contact
   deleteContact(String id, Map<String, dynamic> map) {
     cloudContact.doc(id).delete();
@@ -90,8 +106,6 @@ class FirestoreHelper {
   addMessage(String id, Map<String, dynamic> map) {
     cloudMessage.doc(id).set(map);
   }
-
-//supprimer un message
 
 // upload une image
   Future<String> stockageImage(

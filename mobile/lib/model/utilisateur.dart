@@ -6,30 +6,46 @@ class Utilisateur {
   late String id;
   String? avatar;
   DateTime? birthday;
+  late DateTime dateAdd;
+  late DateTime dateUpd;
   late String firstname;
   late String lastname;
   late String mail;
-  late String phone;
+  String? phone;
   late String pseudo;
-  //String? nickname;
-  //late String email;
+  String? langue;
+  late String password;
   //List? favoris;
 
   //un ou des constructeurs
   Utilisateur(DocumentSnapshot snapshot) {
     id = snapshot.id;
     Map<String, dynamic> map = snapshot.data() as Map<String, dynamic>;
-    lastname = map['NOM'];
-    firstname = map['PRENOM'];
-    mail = map['MAIL'];
-    avatar = map["AVATAR"] ?? defaultImage;
-    //favoris = map["FAVORIS"] ?? [];
-    Timestamp? timeprovisoire = map["BIRTHDAY"];
+    lastname = map['lastname'];
+    firstname = map['firstname'];
+    mail = map['mail'];
+    avatar = map["avatar"] ?? defaultImage;
+    langue = map["langue"] ?? defaultLangue;
+    Timestamp? timeprovisoire = map["birthday"];
     if (timeprovisoire == null) {
       birthday = DateTime.now();
     } else {
       birthday = timeprovisoire.toDate();
     }
+    Timestamp? timeadd = map["date_add"];
+    if (timeadd == null) {
+      dateAdd = DateTime.now();
+    } else {
+      dateAdd = timeadd.toDate();
+    }
+    Timestamp? timeupd = map["date_upd"];
+    if (timeupd == null) {
+      dateUpd = DateTime.now();
+    } else {
+      dateUpd = timeupd.toDate();
+    }
+    phone = map["phone"];
+    pseudo = map["pseudo"];
   }
 
   Utilisateur.empty() {

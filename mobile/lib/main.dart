@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController nom = TextEditingController();
   TextEditingController pseudo = TextEditingController();
   TextEditingController langue = TextEditingController();
+  TextEditingController phone = TextEditingController();
   List<bool> selection = [true, false];
 
   //Méthode
@@ -77,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
             return AlertDialog(
               title: const Text("Erreur"),
               content: const Text(
-                  "Votre email et/ou votre mot de passe sont incorrectes"),
+                  "Votre email et/ou votre mot de passe sont incorrects"),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -166,6 +167,18 @@ class _MyHomePageState extends State<MyHomePage> {
             : Container(),
         const SizedBox(height: 10),
 
+        //pseudo
+        (selection[0] == false)
+            ? TextField(
+                controller: pseudo,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: "Entrer un pseudo"),
+              )
+            : Container(),
+        const SizedBox(height: 10),
+
         //langue
         (selection[0] == false)
             ? TextField(
@@ -174,6 +187,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                     hintText: "Votre langue principale"),
+              )
+            : Container(),
+        const SizedBox(height: 10),
+        //phone
+        (selection[0] == false)
+            ? TextField(
+                controller: phone,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: "Votre numéro de téléphone"),
               )
             : Container(),
         const SizedBox(height: 10),
@@ -207,7 +231,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 //si on en mode inscription
                 FirestoreHelper()
                     .Inscription(mail.text, password.text, prenom.text,
-                        nom.text, pseudo.text, langue.text)
+                        nom.text, pseudo.text, langue.text, phone.text)
                     .then((value) {
                   //si la méthode fonctionne bien
                   setState(() {
