@@ -1,8 +1,8 @@
-//C'est de faire les opérations sur la base de donnée
-
+//Faire les opérations sur la base de donnée
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:matchat/globale.dart';
 import 'package:matchat/model/utilisateur.dart';
 import 'package:matchat/model/message.dart';
 import 'package:matchat/model/contact.dart';
@@ -80,6 +80,21 @@ class FirestoreHelper {
   //ajouter un contact
   addContact(String id, Map<String, dynamic> map) {
     cloudContact.doc(id).set(map);
+  }
+
+  //récuperer une liste de contacts
+  Future<List<DocumentSnapshot>> getContacts(String str) async {
+    var querySnapshot = await FirebaseFirestore.instance
+        .collection('contact')
+        .where('pseudo1', isEqualTo: str)
+        .get();
+    var querySnapshot2 = await FirebaseFirestore.instance
+        .collection('contact')
+        .where('pseudo2', isEqualTo: str)
+        .get();
+
+    querySnapshot.docs.addAll(querySnapshot2.docs);
+    return querySnapshot.docs;
   }
 
   //delete un contact

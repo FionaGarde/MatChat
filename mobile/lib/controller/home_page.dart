@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage>
             if (status == AnimationStatus.completed) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return const MyHomePage(
-                  title: 'Coucou',
+                  title: 'Welcome to MatChat',
                 );
               }));
             }
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage>
 
           //barre de chargerment
           LinearProgressIndicator(
-            minHeight: 5,
+            minHeight: 8,
             value: animatation.value,
             valueColor: const AlwaysStoppedAnimation(Colors.green),
           )
